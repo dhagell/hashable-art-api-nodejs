@@ -15,7 +15,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function(req, res) {
-  res.send('Get ready for OpenSea!');
+  res.send('api.hashable.art ready!');
 })
 
 app.get('/api/token/:token_id', function(req, res) {
@@ -38,7 +38,7 @@ app.get('/api/token/:token_id', function(req, res) {
 })
 
 app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+  console.log('Hashable.Art api is running on port', app.get('port'));
 })
 
 // returns the zodiac sign according to day and month ( https://coursesweb.net/javascript/zodiac-signs_cs )
