@@ -19,10 +19,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 const router = express.Router();
 
 app.get('/', function(req, res) {
-  res.send('api.hashable.art ready!');
+  res.send('api.hashable.art ready1!');
 })
 
-app.get('/api/token/:token_id', function(req, res) {
+app.get('/token/:token_id', function(req, res) {
   const tokenId = parseInt(req.params.token_id).toString()
   const person = db[tokenId]
   const bdayParts = person.birthday.split(' ')
