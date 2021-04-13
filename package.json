@@ -4,6 +4,7 @@
   "description": "Sample metadata API for crypto collectibles",
   "main": "index.js",
   "scripts": {
+    "run": "node index.js",
     "start": "node index.js",
     "test": "node test.js"
   },
