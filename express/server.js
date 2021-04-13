@@ -1,8 +1,8 @@
 const express = require('express')
 const path = require('path')
 const moment = require('moment')
-const { HOST } = require('./src/constants')
-const db = require('./src/database')
+const { HOST } = require('../src/constants')
+const db = require('../src/database')
 
 const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
