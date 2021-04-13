@@ -4,6 +4,9 @@ const moment = require('moment')
 const { HOST } = require('./src/constants')
 const db = require('./src/database')
 
+const serverless = require('serverless-http');
+const bodyParser = require('body-parser');
+
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -32,15 +35,15 @@ app.get('/api/token/:token_id', function(req, res) {
       'zodiac sign': zodiac(day, month),
       // 'age': moment().diff(person.birthday, 'years')
     },
-    'image': `${HOST}/images/${tokenId}.png`
+    'image': `${HOST}/public/images/${tokenId}.png`
   }
   res.send(data)
 })
-
+/*
 app.listen(app.get('port'), function() {
   console.log('Hashable.Art api is running on port', app.get('port'));
 })
-
+*/
 // returns the zodiac sign according to day and month ( https://coursesweb.net/javascript/zodiac-signs_cs )
 function zodiac(day, month) {
   var zodiac =['', 'Capricorn', 'Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn'];
@@ -53,3 +56,6 @@ function monthName(month) {
   ]
   return monthNames[month - 1]
 }
+
+module.exports = app;
+module.exports.handler = serverless(app);
