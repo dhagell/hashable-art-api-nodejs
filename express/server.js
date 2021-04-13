@@ -18,11 +18,11 @@ const app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 const router = express.Router();
 
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
   res.send('api.hashable.art ready1!');
 })
 
-app.get('/token/:token_id', function(req, res) {
+router.get('/token/:token_id', function(req, res) {
   const tokenId = parseInt(req.params.token_id).toString()
   const person = db[tokenId]
   const bdayParts = person.birthday.split(' ')
@@ -40,11 +40,11 @@ app.get('/token/:token_id', function(req, res) {
   }
   res.send(data)
 })
-router.post('/', (req, res) => res.json({ postBody: req.body }));
+//router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+//app.use(bodyParser.json());
+//app.use('/.netlify/functions/server', router);  // path must route to lambda
+//app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 /*
 app.listen(app.get('port'), function() {
   console.log('Hashable.Art api is running on port', app.get('port'));
