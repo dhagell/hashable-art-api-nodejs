@@ -42,9 +42,9 @@ app.get('/token/:token_id', function(req, res) {
 })
 //router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-//app.use(bodyParser.json());
-//app.use('/.netlify/functions/server', router);  // path must route to lambda
-//app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use(bodyParser.json());
+app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 /*
 app.listen(app.get('port'), function() {
   console.log('Hashable.Art api is running on port', app.get('port'));
