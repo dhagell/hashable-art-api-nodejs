@@ -1,5 +1,3 @@
-[build]
-  command = "netlify-lambda build netlify/functions"
 [functions]
   directory = "netlify/functions"
 
