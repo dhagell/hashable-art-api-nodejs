@@ -1,3 +1,7 @@
 [functions]
   directory = "netlify/functions"
-
+  
+[context.production]
+  publish = "output/"
+  command = "make publish"
+  environment = { ACCESS_TOKEN = "super secret", NODE_VERSION = "14.14.0 }
