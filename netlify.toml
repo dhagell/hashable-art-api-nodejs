@@ -1,3 +1,4 @@
 [functions]
   directory = "netlify/functions"
- 
+[context.production.environment]
+  ACCESS_TOKEN = "not so secret"
